@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 const Home = () => {
   const [name, setName] = useState(null);
@@ -7,9 +9,7 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name);
-    console.log(email);
-    console.log(password)
+    console.log(name, email, password);
   };
 
   const handleOnChangeName = (e) => {
@@ -19,38 +19,43 @@ const Home = () => {
     setEmail(e.target.value);
   };
   const handleOnChangePassword = (e) => {
-    setPassword(e.target.value)
+    setPassword(e.target.value);
   };
 
   return (
-    <div className="flex justify-center  bg-gray-500 w-1/3 mx-auto mt-20 p-4">
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={handleOnChangeName}
-          className="border-2 border-gray-300 p-1 my-2"
-          type="text"
-          name="name"
-          id=""
-        />
-        <br />
-        <input
-          onChange={handleOnChangeEmail}
-          className="border-2 border-gray-300 p-1 my-2"
-          type="email"
-          name="email"
-          id=""
-        />
-        <br />
-        <input
+    <div>
+      <div>
+        <Navbar></Navbar>
+      </div>
+      <div className="flex justify-center  bg-gray-500 w-1/3 mx-auto mt-20 p-4">
+        <form onSubmit={handleSubmit}>
+          <input
+            onChange={handleOnChangeName}
+            className="border-2 border-gray-300 p-1 my-2"
+            type="text"
+            name="name"
+            id=""
+          />
+          <br />
+          <input
+            onChange={handleOnChangeEmail}
+            className="border-2 border-gray-300 p-1 my-2"
+            type="email"
+            name="email"
+            id=""
+          />
+          <br />
+          <input
             onChange={handleOnChangePassword}
-          className="border-2 border-gray-300 p-1 my-2"
-          type="password"
-          name="password"
-          id=""
-        />
-        <br />
-        <input className="btn btn-primary" type="submit" value="Submit" />
-      </form>
+            className="border-2 border-gray-300 p-1 my-2"
+            type="password"
+            name="password"
+            id=""
+          />
+          <br />
+          <input className="btn btn-primary" type="submit" value="Submit" />
+        </form>
+      </div>
     </div>
   );
 };
